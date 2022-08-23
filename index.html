@@ -1,1 +1,7 @@
-<!-- build time:Tue Aug 23 2022 10:12:31 GMT+0800 (中国标准时间) -->extends includes/layout.pug block content include ./includes/mixins/post-ui.pug #recent-posts.recent-posts +postUI include includes/pagination.pug<!-- rebuild by hrmmi -->
+extends includes/layout.pug
+
+block content
+  include ./includes/mixins/post-ui.pug
+  #recent-posts.recent-posts
+    +postUI
+    include includes/pagination.pug
