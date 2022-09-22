@@ -80,7 +80,21 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://bayberry.work/tags/JavaSE/</loc>
+    <lastmod>2022-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>http://bayberry.work/categories/JavaSE/</loc>
+    <lastmod>2022-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>http://bayberry.work/categories/%E6%8A%80%E6%9C%AF/</loc>
