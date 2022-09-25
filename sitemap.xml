@@ -110,14 +110,14 @@
 
   
   <url>
-    <loc>http://bayberry.work/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://bayberry.work/tags/Picgo/</loc>
     <lastmod>2022-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://bayberry.work/tags/Picgo-Typore/</loc>
+    <loc>http://bayberry.work/tags/Typore/</loc>
     <lastmod>2022-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -130,17 +130,24 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://bayberry.work/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
-    <loc>http://bayberry.work/categories/JavaSE/</loc>
+    <loc>http://bayberry.work/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://bayberry.work/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://bayberry.work/categories/JavaSE/</loc>
     <lastmod>2022-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
