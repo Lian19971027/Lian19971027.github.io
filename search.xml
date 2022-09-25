@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Picgo+Typore上传图片失败</title>
+      <link href="/archives/dc394251.html"/>
+      <url>/archives/dc394251.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="picgotypore上传图片失败"><a class="markdownIt-Anchor" href="#picgotypore上传图片失败">#</a> Picgo+Typore 上传图片失败</h4><p>刚整完图片不显示的问题，准备测试一下，发现特么的 typore 上没法通过 picgo 上传到 github 的图床了🙂</p><p>具体报错情况如下</p><p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209260114817.png" alt="image-20220926011423772"></p><p>从网上找了半天，无外乎三种解决方案</p><ol><li>改端口号，重启 picgo 的 server</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209260115053.png" alt="image-20220926011553013"></p><ol start="2"><li>打开时间戳重命名</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209260116417.png" alt="image-20220926011623384"></p><ol start="3"><li>玄学大法，直接重启，重装</li></ol><hr><p>在尝试过以上几种方式未解决后，通过查询，我找到了报错日志，从中找问题，步骤如下</p><p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209260118461.png" alt="image-20220926011804414"></p><p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209260118734.png" alt="image-20220926011819683"></p><p>通过查询日志，我找到了报错信息。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">RequestError: Error: unable to verify the first certificate</span><br><span class="line">    at new RequestError (D:\PicGo\resources\app.asar\node_modules\request-promise-core\lib\errors.js:14:15)</span><br><span class="line">    at Request.plumbing.callback (D:\PicGo\resources\app.asar\node_modules\request-promise-core\lib\plumbing.js:87:29)</span><br><span class="line">    at Request.RP$callback [as _callback] (D:\PicGo\resources\app.asar\node_modules\request-promise-core\lib\plumbing.js:46:31)</span><br><span class="line">    at self.callback (D:\PicGo\resources\app.asar\node_modules\request\request.js:185:22)</span><br><span class="line">    at Request.emit (node:events:394:28)</span><br><span class="line">    at Request.onRequestError (D:\PicGo\resources\app.asar\node_modules\request\request.js:877:8)</span><br><span class="line">    at ClientRequest.emit (node:events:394:28)</span><br><span class="line">    at TLSSocket.socketErrorListener (node:_http_client:447:9)</span><br><span class="line">    at TLSSocket.emit (node:events:394:28)</span><br><span class="line">    at emitErrorNT (node:internal/streams/destroy:157:8)</span><br></pre></td></tr></table></figure><p>​以上报错信息中，unable to verify the first certificate，无法验证第一个证书，感觉可能是网络的问题，然后忽然想到我在开着 GitHub 的加速器，修改了 host。。。。。。没错，加速器关了就好了，就这点问题又鼓捣了整整一小时🙃</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Picgo,Typore </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo博客图床图片不显示问题</title>
+      <link href="/archives/e5c81b04.html"/>
+      <url>/archives/e5c81b04.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="hexo使用picgo图床-放到github-pages上无法显示"><a class="markdownIt-Anchor" href="#hexo使用picgo图床-放到github-pages上无法显示">#</a> hexo 使用 picgo 图床 放到 github pages 上无法显示</h2><p>​最近搭建了一个 GitHub 的图床，搭配 PicGo 和 Typora 使用，在 Markdown 中插入图片非常方便，只需要复制图片，粘贴到 Typora 中，就可以自动调用 PicGo 上传并且获取链接了，但是在使用中遇到一个问题，本站在本地运行 hexo server 的情况下访问，所有图片显示正常，但是上传到服务器之后再访问，就会出现图片不显示的情况，复制图片 URL 访问也可以访问到。</p><p>​从网上查询了好多的解决办法，比如在 head.hup 下添加 <code>meta(name=&quot;referrer&quot; content=&quot;no-referrer&quot;)</code> , 但是都没有用，后来通过查询，发现可能是因为在 http 的页面引入 https 资源会被拦截，然后我把 GitHub pages 的 Https 开启之后就正常了。</p><h3 id="github-pages-开启https"><a class="markdownIt-Anchor" href="#github-pages-开启https">#</a> GitHub Pages 开启 HTTPS</h3><ol><li>打开我们的仓库，找到 settings</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209260048246.png" alt="image-20220926004853186"></p><ol start="2"><li>点击 pages</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209260059545.png" alt="image-20220926005946871"></p><ol start="3"><li>点击开启 https</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209260102419.png" alt="image-20220926010222357"></p><p>ok 这样就解决了～～</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>四、程序控制结构</title>
       <link href="/archives/e88088a3.html"/>
       <url>/archives/e88088a3.html</url>
