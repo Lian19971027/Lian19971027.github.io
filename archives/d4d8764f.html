@@ -1,0 +1,397 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>五、数组和排序 | Bayberry's Blog</title><meta name="keywords" content="学习"><meta name="author" content="Noah."><meta name="copyright" content="Noah."><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="第五篇个人博客😀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="五、数组和排序">
+<meta property="og:url" content="http://bayberry.work/archives/d4d8764f.html">
+<meta property="og:site_name" content="Bayberry&#39;s Blog">
+<meta property="og:description" content="第五篇个人博客😀">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&rs=1">
+<meta property="article:published_time" content="2022-09-26T08:52:37.000Z">
+<meta property="article:modified_time" content="2022-09-26T13:49:19.117Z">
+<meta property="article:author" content="Noah.">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&rs=1"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/彩虹.ico"><link rel="canonical" href="http://bayberry.work/archives/d4d8764f"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-cNoiIQSLmS"/><meta name="bing-site-verification" content="8C34AD9C1AB754525EA0C621D80D3634"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Noah.","link":"链接: ","source":"来源: Bayberry's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '五、数组和排序',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-26 21:49:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/31e390d5ed8bece23b371648bdc745a.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&amp;rs=1')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Bayberry's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">五、数组和排序</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-26T08:52:37.000Z" title="发表于 2022-09-26 16:52:37">2022-09-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-26T13:49:19.117Z" title="更新于 2022-09-26 21:49:19">2022-09-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaSE/">JavaSE</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="五、数组和排序"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="数组介绍"><a class="markdownIt-Anchor" href="#数组介绍">#</a> 数组介绍</h2>
+<p>数组是一种数据结构，在 Java 中可以理解为一种特殊的数据类型， 是引用类型。可以存放多个同一类型的数据。</p>
+<p>即：数 (数据) 组 (一组) 就是一组数据</p>
+<h2 id="数组的使用"><a class="markdownIt-Anchor" href="#数组的使用">#</a> 数组的使用</h2>
+<h3 id="数组的初始化"><a class="markdownIt-Anchor" href="#数组的初始化">#</a> 数组的初始化</h3>
+<p>​	数组的初始化与变量初始化类似，有三种方式：</p>
+<ol>
+<li>
+<p><code>数组元素类型名[] 数组名 = &#123;元素1，元素2，元素3....&#125;</code></p>
+<p>例如： <code>char[] ch = &#123;'a','b','c'&#125;;</code></p>
+<p>char [] 表示这是一个 char 类型的数组，ch 是数组名，给数组每个元素赋的初值在 {} 内，用 &quot;,&quot; 隔开。</p>
+</li>
+<li>
+<p><code>数组元素类型名[] 数组名 = new char[]&#123;元素1，元素2，元素3，.........&#125;</code></p>
+<p>例如： <code>char[] ch = new char[]&#123;'a','b','c'&#125;;</code></p>
+<p>数组声明的同时数组的大小就会确定，方式一和方式二的共同点就是会在声明的同时赋初值。</p>
+</li>
+<li>
+<p><code>数组元素类型名[] 数组名 = new char[数组元素个数]</code></p>
+<p><code>数组名[0] = 元素1；</code></p>
+<p><code>数组名[1] = 元素2；</code></p>
+<p><code>数组名[2] = 元素3；</code></p>
+<p>例如： <code>char[] ch = new char[3];ch[0] = 'a';ch[1] = 'b';ch[2] = 'c'</code></p>
+</li>
+</ol>
+<h3 id="数组的引用使用访问获取数组元素"><a class="markdownIt-Anchor" href="#数组的引用使用访问获取数组元素">#</a> 数组的引用 (使用 / 访问 / 获取数组元素)</h3>
+<p>数组名 [index]    比如你要使用 ch 数组的第 3 个字符	==&gt;	ch [2]</p>
+<p>小练习</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//循环输入 5 个成绩，保存到 double 数组,并输出</span></span><br><span class="line"><span class="comment">//步骤</span></span><br><span class="line"><span class="comment">//1. 创建一个 double 数组，大小 5</span></span><br><span class="line"><span class="comment">//(1) 第一种动态分配方式</span></span><br><span class="line"><span class="comment">//double scores[] = new double[5];</span></span><br><span class="line"><span class="comment">//(2) 第 2 种动态分配方式，先声明数组，再new分配空间</span></span><br><span class="line"><span class="type">double</span> scores[] ; <span class="comment">//声明数组，这时 scores 是 null</span></span><br><span class="line">scores = <span class="keyword">new</span> <span class="title class_">double</span>[<span class="number">5</span>]; <span class="comment">// 分配内存空间，可以存放数据</span></span><br><span class="line"><span class="comment">//2. 循环输入</span></span><br><span class="line"><span class="comment">// scores.length 表示数组的大小/长度</span></span><br><span class="line"><span class="type">Scanner</span> <span class="variable">myScanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"><span class="keyword">for</span>( <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; scores.length; i++) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;请输入第&quot;</span>+ (i+<span class="number">1</span>) +<span class="string">&quot;个元素的值&quot;</span>);</span><br><span class="line">    scores[i] = myScanner.nextDouble();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出，遍历数组</span></span><br><span class="line">System.out.println(<span class="string">&quot;==数组的元素/值的情况如下:===&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>( <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; scores.length; i++) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;第&quot;</span>+ (i+<span class="number">1</span>) +<span class="string">&quot;个元素的值=&quot;</span> + scores[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="数组使用注意事项和细节"><a class="markdownIt-Anchor" href="#数组使用注意事项和细节">#</a> 数组使用注意事项和细节</h3>
+<ol>
+<li>
+<p>数组是多个相同类型数据的组合，实现对这些数据的统一管理</p>
+</li>
+<li>
+<p>数组中的元素可以是任何数据类型，包括基本类型和引用类型，但是不能混用。</p>
+</li>
+<li>
+<p>数组创建后，如果没有赋值，有默认值</p>
+<p>int→0，short→0，byte→0，long→0</p>
+<p>float→0.0，double→0.0</p>
+<p>char→\u0000，boolean→false，String→null</p>
+</li>
+<li>
+<p>使用数组的步骤</p>
+<p>声明数组并开辟空间	→	给数组各个元素赋值	→	使用数组</p>
+</li>
+<li>
+<p><mark>数组的下标是从 0 开始的</mark>。</p>
+</li>
+<li>
+<p>数组下标必须在指定范围内使用，否则报：下标越界异常</p>
+<p>比如: <code>int[] arr = new int[5];</code>  则有效下标为 0-4</p>
+</li>
+<li>
+<p>数组属引用类型，数组型数据是对象 (object)</p>
+</li>
+<li>
+<p>数组名.length 返回的是数组长度</p>
+</li>
+</ol>
+<h3 id="数组赋值机制"><a class="markdownIt-Anchor" href="#数组赋值机制">#</a> 数组赋值机制</h3>
+<ol>
+<li>
+<p>基本数据类型赋值，这个值就是具体的数据，而且相互不影响。  <code>int n1 = 2; int n2 = n1;</code></p>
+</li>
+<li>
+<p>数组在默认情况下是引用传递，赋的值是地址。</p>
+<p>此处是 arr1 的地址赋给了 arr2，现在 arr1 和 arr2 指向的是同一个内存空间 (同一个数组)，所以通过 arr2 来改变数组元素的时候，arr1 的也被更改。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209261927188.png" alt="image-20220926192721102"></p>
+</li>
+</ol>
+<h3 id="数组拷贝"><a class="markdownIt-Anchor" href="#数组拷贝">#</a> 数组拷贝</h3>
+<p>将 int [] arr1 = {10,20,30}; 拷贝到 arr2 数组，要求数据空间是独立的.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] arr1 = &#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>&#125;;</span><br><span class="line"><span class="comment">//创建一个新的数组 arr2,开辟新的数据空间</span></span><br><span class="line"><span class="comment">//大小 arr1.length;</span></span><br><span class="line"><span class="type">int</span>[] arr2 = <span class="keyword">new</span> <span class="title class_">int</span>[arr1.length];</span><br><span class="line"><span class="comment">//遍历 arr1 ，把每个元素拷贝到 arr2 对应的元素位置</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr1.length; i++) &#123;</span><br><span class="line">	arr2[i] = arr1[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//修改 arr2，不会对 arr1 有影响. </span></span><br><span class="line">arr2[<span class="number">0</span>] = <span class="number">100</span>;</span><br><span class="line"><span class="comment">//输出 arr1</span></span><br><span class="line">System.out.println(<span class="string">&quot;====arr1 的元素====&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr1.length; i++) &#123;</span><br><span class="line">	System.out.println(arr1[i]);<span class="comment">//10,20,30</span></span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">&quot;====arr2 的元素====&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr2.length; i++) &#123;</span><br><span class="line">	System.out.println(arr2[i]);<span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###　数组反转</p>
+<p 66,="" 55,44,33,22,11="">要求：把数组的元素内容反转。arr {11,22,33,44,55,66}→</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一，通过找规律反转</span></span><br><span class="line"><span class="type">int</span>[] arr = &#123;<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">66</span>&#125;;</span><br><span class="line"><span class="comment">//1. 把 arr[0] 和 arr[5] 进行交换 &#123;66,22,33,44,55,11&#125;</span></span><br><span class="line"><span class="comment">//2. 把 arr[1] 和 arr[4] 进行交换 &#123;66,55,33,44,22,11&#125;</span></span><br><span class="line"><span class="comment">//3. 把 arr[2] 和 arr[3] 进行交换 &#123;66,55,44,33,22,11&#125;</span></span><br><span class="line"><span class="comment">//4. 一共要交换 3 次 = arr.length / 2</span></span><br><span class="line"><span class="comment">//5. 每次交换时，对应的下标 是 arr[i] 和 arr[arr.length - 1 -i]</span></span><br><span class="line"><span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//定义一个中间变量用来交换数据</span></span><br><span class="line"><span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> arr.length; <span class="comment">//计算数组的长度</span></span><br><span class="line"><span class="keyword">for</span>( <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len / <span class="number">2</span>; i++) &#123;</span><br><span class="line">	temp = arr[len - <span class="number">1</span> - i];<span class="comment">//保存</span></span><br><span class="line">	arr[len - <span class="number">1</span> - i] = arr[i];</span><br><span class="line">	arr[i] = temp;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">&quot;===翻转后数组===&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">	System.out.print(arr[i] + <span class="string">&quot;\t&quot;</span>);<span class="comment">//66,55,44,33,22,11</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法二，通过逆序遍历</span></span><br><span class="line"><span class="type">int</span>[] arr = &#123;<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">66</span>&#125;;</span><br><span class="line"><span class="comment">//1. 先创建一个新的数组 arr2 ,大小 arr.length</span></span><br><span class="line"><span class="comment">//2. 逆序遍历 arr ,将 每个元素拷贝到 arr2 的元素中(顺序拷贝)</span></span><br><span class="line"><span class="comment">//3. 建议增加一个循环变量 j -&gt; 0 -&gt; 5</span></span><br><span class="line"><span class="type">int</span>[] arr2 = <span class="keyword">new</span> <span class="title class_">int</span>[arr.length];</span><br><span class="line"><span class="comment">//逆序遍历 arr</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> arr.length - <span class="number">1</span>, j = <span class="number">0</span>; i &gt;= <span class="number">0</span>; i--, j++) &#123;</span><br><span class="line">	arr2[j] = arr[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//4. 当 for 循环结束，arr2 就是一个逆序的数组 &#123;66, 55, 44,33, 22, 11&#125;</span></span><br><span class="line"><span class="comment">//5. 让 arr 指向 arr2 数据空间, 此时 arr 原来的数据空间就没有变量引用</span></span><br><span class="line"><span class="comment">// 会被当做垃圾，销毁</span></span><br><span class="line">arr = arr2;</span><br><span class="line">System.out.println(<span class="string">&quot;====arr 的元素情况=====&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">    System.out.print(arr[i] + <span class="string">&quot;\t&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="排序"><a class="markdownIt-Anchor" href="#排序">#</a> 排序</h2>
+<p>排序是将多个数据，依指定的顺序进行排列的过程。分为以下两种：</p>
+<ol>
+<li>内部排序法：指将需要处理的所有数据都加载到内部存储器中进行排序。包括 (交换式排序法、选择式排序法和插入式排序法)；</li>
+<li>外部排序法：数据量过大，无法全部加载到内存中，需要借助外部存储进行排序。包括 (合并排序法和直接合并排序法)。</li>
+</ol>
+<h3 id="冒泡排序"><a class="markdownIt-Anchor" href="#冒泡排序">#</a> 冒泡排序</h3>
+<p>冒泡排序（Bubble Sorting）的基本思想是：</p>
+<p>通过对待排序序列从后向前（从下标较大的元素开始），依次比较相邻元素的值，若发现逆序则交换，使值较大的元素逐渐从前移向后部，就象水底下的气泡一样逐渐向上冒。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209262058581.gif" alt="冒泡排序"></p>
+<p>举一个具体的案例来说明冒泡法。我们将五个无序：24,69,80,57,13 使用冒泡排序法将其排成一个从小到大的有 序数列。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209262035087.png" alt="image-20220926203549002"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="type">int</span>[] arr = &#123;<span class="number">24</span>,<span class="number">69</span>,<span class="number">80</span>,<span class="number">57</span>,<span class="number">13</span>&#125;;</span><br><span class="line"> <span class="type">int</span> temp;</span><br><span class="line"> <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;arr.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">     <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j&lt;arr.length-i-<span class="number">1</span>;j++)&#123;</span><br><span class="line">         <span class="keyword">if</span> (arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">         temp = arr[j];</span><br><span class="line">         arr[j] = arr[j+<span class="number">1</span>];</span><br><span class="line">         arr[j+<span class="number">1</span>] = temp;</span><br><span class="line">     	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择排序"><a class="markdownIt-Anchor" href="#选择排序">#</a> 选择排序</h3>
+<p>选择排序 (select sorting) 也是一种简单的排序方法。</p>
+<p>它的基本思想是:</p>
+<p>第一次从 arr [0]→arr [n-1] 中选取最小值， 与 arr [0] 交换</p>
+<p>第二次从 arr [1]→arr [n-1] 中选取最小值，与 arr [1] 交换</p>
+<p>第三次从 arr [2]→arr [n-1] 中选取最小值，与 arr [2] 交换</p>
+<p>第 i 次从 arr [i-1]→arr [n-1] 中选取最小值，与 arr [i-1] 交换</p>
+<p>第 n-1 次从 arr [n-2]→arr [n-1] 中选取最小值， 与 arr [n-2] 交换，总共通过 n-1 次，得到一个按排序码从小到大排列的有序序列。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209262059159.gif" alt="选择排序"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//还是以上面的数组举例</span></span><br><span class="line"><span class="type">int</span>[] arr = &#123;<span class="number">24</span>,<span class="number">69</span>,<span class="number">80</span>,<span class="number">57</span>,<span class="number">13</span>&#125;;</span><br><span class="line"><span class="type">int</span> temp;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.length-<span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">minIndex</span> <span class="operator">=</span> i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i+<span class="number">1</span>; j &lt;arr.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[j]&lt;arr[minIndex])&#123;</span><br><span class="line">        temp = arr[j];</span><br><span class="line">        arr[j] = arr[minIndex];</span><br><span class="line">        arr[minIndex] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二维数组"><a class="markdownIt-Anchor" href="#二维数组">#</a> 二维数组</h2>
+<p>二维数组其实是一个特殊的一维数组，特殊在这个一位数组当中的每一个元素是一个一维数组。</p>
+<p>二维数组的应用场景，比如我们开发一个五子棋游戏，棋盘就是需要二维数组来表示。如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209262114988.png" alt="五子棋"></p>
+<h3 id="二维数组的初始化"><a class="markdownIt-Anchor" href="#二维数组的初始化">#</a> 二维数组的初始化</h3>
+<h4 id="动态初始化"><a class="markdownIt-Anchor" href="#动态初始化">#</a> 动态初始化</h4>
+<p>语法:  <code>类型[][] 数组名=new 类型[大小] [大小]</code></p>
+<p>比如:  <code>int[][] a=new int[2][2]</code></p>
+<p>如果每个数组元素长度不确定的话可以不指定长度</p>
+<p>比如： <code>int[][] arr = new int[3][];</code></p>
+<p>赋值 (有默认值，比如 int 类型的就是 0)</p>
+<h4 id="静态初始化"><a class="markdownIt-Anchor" href="#静态初始化">#</a> 静态初始化</h4>
+<p>语法： <code>类型[][] 数组名 = &#123;&#123;值 1,值 2..&#125;,&#123;值 1,值 2..&#125;&#125;;</code></p>
+<p>比如： <code>int[][] arr = &#123;&#123;1,1,1&#125;,&#123;8,89&#125;,&#123;123&#125;&#125;;</code></p>
+<p>arr 数组有三个元素 (每个元素都是一维数组)</p>
+<p>第一个一维数组有 3 个元素，第二个一维数组有 2 个元素，第三个一维数组有 1 个元素</p>
+<h3 id="二维数组元素的访问"><a class="markdownIt-Anchor" href="#二维数组元素的访问">#</a> 二维数组元素的访问</h3>
+<p>关于二维数组中元素的读和写<br>
+ <code>a[二维数组中的一维数组的下标][一维数组的下标]</code> <br>
+ <code>a[0][0]</code> : 表示第 1 个一维数组中的第 1 个元素<br>
+ <code>a[1][2]</code> : 表示第 2 个一维数组的第 3 个元素</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209262118180.png" alt="image-20220926211836101"></p>
+<h4 id="打印杨辉三角"><a class="markdownIt-Anchor" href="#打印杨辉三角">#</a> 打印杨辉三角</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/202209262131521.png" alt="image-20220926213123454"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//打印一个8行的杨辉三角</span></span><br><span class="line"><span class="type">int</span>[][] yanghui = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">8</span>][];</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; yanghui.length; i++) &#123;</span><br><span class="line">          <span class="comment">//给每个一维数组(行)开空间,第一行开辟一个元素空间，第二行两个元素，以此类推</span></span><br><span class="line">          yanghui[i] = <span class="keyword">new</span> <span class="title class_">int</span>[i+<span class="number">1</span>];</span><br><span class="line">          <span class="comment">//给每一个一维数组赋值</span></span><br><span class="line">          <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; yanghui[i].length; j++) &#123;</span><br><span class="line">              <span class="comment">//如果是第一个或者最后一个元素，赋值1</span></span><br><span class="line">              <span class="keyword">if</span> (j == <span class="number">0</span> || j == yanghui[i].length-<span class="number">1</span>)&#123;</span><br><span class="line">                  yanghui[i][j] = <span class="number">1</span>;</span><br><span class="line">              &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="comment">//如果是中间的元素</span></span><br><span class="line">                  yanghui[i][j] = yanghui[i-<span class="number">1</span>][j] + yanghui[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; yanghui.length; i++) &#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; yanghui[i].length; j++) &#123;<span class="comment">//遍历输出该行</span></span><br><span class="line">              System.out.print(yanghui[i][j] + <span class="string">&quot;\t&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          System.out.println();</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二维数组使用细节和注意事项"><a class="markdownIt-Anchor" href="#二维数组使用细节和注意事项">#</a> 二维数组使用细节和注意事项</h3>
+<ol>
+<li>
+<p>一维数组的声明方式有:  <code>int[] x</code>  或者  <code>int x[] </code></p>
+</li>
+<li>
+<p>二维数组的声明方式有:  <code>int[][] y</code>  或者 <code> int[] y[]</code>  或者 <code>int y[][]</code></p>
+</li>
+<li>
+<p>二维数组实际上是由多个一维数组组成的，它的各个一维数组的长度可以相同，也可以不相同。</p>
+<p>比如：  <code>map[][]</code>  是 一个二维数组  <code>int map [][] = &#123;&#123;1,2&#125;,&#123;3,4,5&#125;&#125;</code></p>
+<p><code>map[0]</code>  是一个含有两个元素的一维数组 ， <code>map[1]</code>  是一个含有三个元素的一维数组构成，我们也称为列数不等的二维数组</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://bayberry.work">Noah.</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://bayberry.work/archives/d4d8764f.html">http://bayberry.work/archives/d4d8764f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://bayberry.work" target="_blank">Bayberry's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a></div><div class="post_share"><div class="social-share" data-image="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&amp;rs=1" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/archives/dc394251.html"><img class="next-cover" src="https://cdn.pixabay.com/photo/2020/03/31/19/20/dog-4988985__340.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Picgo+Typore上传图片失败</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/1113d944.html" title="一、Java概述"><img class="cover" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&rs=1" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-22</div><div class="title">一、Java概述</div></div></a></div><div><a href="/archives/f29265a7.html" title="三、运算符"><img class="cover" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&rs=1" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-24</div><div class="title">三、运算符</div></div></a></div><div><a href="/archives/13ffbe88.html" title="二、变量"><img class="cover" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&rs=1" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-22</div><div class="title">二、变量</div></div></a></div><div><a href="/archives/e88088a3.html" title="四、程序控制结构"><img class="cover" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&rs=1" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-25</div><div class="title">四、程序控制结构</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NzExOS8zMzU4Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/Lian19971027/PicGoDemoImage/img/31e390d5ed8bece23b371648bdc745a.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Noah.</div><div class="author-info__description">欢迎访问</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Lian19971027"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lian19971027" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1437400034@qq.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://lian19971027.github.io/" rel="external nofollow noreferrer" target="_blank" title="博客"><i class="fa-solid fa-book"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到杨梅先生的博客~~~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> 数组介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> 数组的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text"> 数组的初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%BC%95%E7%94%A8%E4%BD%BF%E7%94%A8%E8%AE%BF%E9%97%AE%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0"><span class="toc-number">2.2.</span> <span class="toc-text"> 数组的引用 (使用 &#x2F; 访问 &#x2F; 获取数组元素)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E7%BB%86%E8%8A%82"><span class="toc-number">2.3.</span> <span class="toc-text"> 数组使用注意事项和细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E8%B5%8B%E5%80%BC%E6%9C%BA%E5%88%B6"><span class="toc-number">2.4.</span> <span class="toc-text"> 数组赋值机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%8B%B7%E8%B4%9D"><span class="toc-number">2.5.</span> <span class="toc-text"> 数组拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text"> 排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">3.1.</span> <span class="toc-text"> 冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-number">3.2.</span> <span class="toc-text"> 选择排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">4.</span> <span class="toc-text"> 二维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">4.1.</span> <span class="toc-text"> 二维数组的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">4.1.1.</span> <span class="toc-text"> 动态初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">4.1.2.</span> <span class="toc-text"> 静态初始化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="toc-number">4.2.</span> <span class="toc-text"> 二维数组元素的访问</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 打印杨辉三角</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">4.3.</span> <span class="toc-text"> 二维数组使用细节和注意事项</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/d4d8764f.html" title="五、数组和排序"><img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&amp;rs=1" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="五、数组和排序"/></a><div class="content"><a class="title" href="/archives/d4d8764f.html" title="五、数组和排序">五、数组和排序</a><time datetime="2022-09-26T08:52:37.000Z" title="发表于 2022-09-26 16:52:37">2022-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/dc394251.html" title="Picgo+Typore上传图片失败"><img src="https://cdn.pixabay.com/photo/2020/03/31/19/20/dog-4988985__340.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Picgo+Typore上传图片失败"/></a><div class="content"><a class="title" href="/archives/dc394251.html" title="Picgo+Typore上传图片失败">Picgo+Typore上传图片失败</a><time datetime="2022-09-25T17:06:44.000Z" title="发表于 2022-09-26 01:06:44">2022-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/e5c81b04.html" title="hexo博客图床图片不显示问题"><img src="https://cdn.pixabay.com/photo/2016/11/22/19/17/buildings-1850129__340.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo博客图床图片不显示问题"/></a><div class="content"><a class="title" href="/archives/e5c81b04.html" title="hexo博客图床图片不显示问题">hexo博客图床图片不显示问题</a><time datetime="2022-09-25T15:22:11.000Z" title="发表于 2022-09-25 23:22:11">2022-09-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/e88088a3.html" title="四、程序控制结构"><img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&amp;rs=1" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="四、程序控制结构"/></a><div class="content"><a class="title" href="/archives/e88088a3.html" title="四、程序控制结构">四、程序控制结构</a><time datetime="2022-09-25T08:16:44.000Z" title="发表于 2022-09-25 16:16:44">2022-09-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/f29265a7.html" title="三、运算符"><img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.T97StdyhipoCXhd4nkFtygHaEv?pid=ImgDet&amp;rs=1" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="三、运算符"/></a><div class="content"><a class="title" href="/archives/f29265a7.html" title="三、运算符">三、运算符</a><time datetime="2022-09-24T03:00:22.000Z" title="发表于 2022-09-24 11:00:22">2022-09-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By Noah.</div><div class="footer_custom_text"><div><a onclick="window.open('https://beian.miit.gov.cn/#/Integrated/index')" class='footer_a'>冀ICP备2022020495号-1</a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
