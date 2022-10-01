@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.bayberry.work/archives/8d55c929.html</loc>
+    
+    <lastmod>2022-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.bayberry.work/archives/13ffbe88.html</loc>
     
     <lastmod>2022-09-27</lastmod>
@@ -112,36 +121,36 @@
 
   <url>
     <loc>https://www.bayberry.work/</loc>
-    <lastmod>2022-09-27</lastmod>
+    <lastmod>2022-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://www.bayberry.work/tags/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-09-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.bayberry.work/tags/Picgo/</loc>
-    <lastmod>2022-09-27</lastmod>
+    <lastmod>2022-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.bayberry.work/tags/Typore/</loc>
-    <lastmod>2022-09-27</lastmod>
+    <lastmod>2022-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.bayberry.work/tags/hexo/</loc>
-    <lastmod>2022-09-27</lastmod>
+    <lastmod>2022-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bayberry.work/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -149,15 +158,15 @@
 
   
   <url>
-    <loc>https://www.bayberry.work/categories/JavaSE/</loc>
-    <lastmod>2022-09-27</lastmod>
+    <loc>https://www.bayberry.work/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2022-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.bayberry.work/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2022-09-27</lastmod>
+    <loc>https://www.bayberry.work/categories/JavaSE/</loc>
+    <lastmod>2022-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
